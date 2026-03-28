@@ -1,0 +1,5 @@
+claim_id,patient_id,insurance_provider,claim_amount,claim_status
+5001,1001,Aetna,2400,Approved
+5002,1002,BCBS,7800,Pending
+5003,1003,Cigna,450,Approved
+5004,1004,Aetna,14000,Denied
