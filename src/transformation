@@ -1,1 +1,18 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
 
+def transform_data(input_path, output_path):
+    spark = SparkSession.builder.appName("Transformation").getOrCreate()
+
+    df = spark.read.format("delta").load(input_path)
+
+    clean_df = df.dropna().dropDuplicates()
+
+    clean_df = clean_df.withColumn("cost", col("cost").cast("int"))
+
+    clean_df.write.format("delta").mode("overwrite").save(output_path)
+
+    print("Data moved to Silver layer")
+
+if __name__ == "__main__":
+    transform_data("data/bronze/patient", "data/silver/patient")
