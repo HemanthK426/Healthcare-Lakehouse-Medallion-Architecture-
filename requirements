@@ -1,0 +1,7 @@
+# Core dependencies for Healthcare Lakehouse Pipeline
+
+pyspark==3.5.0
+delta-spark==3.1.0
+pandas==2.2.2
+apache-airflow==2.9.1
+boto3==1.34.131
