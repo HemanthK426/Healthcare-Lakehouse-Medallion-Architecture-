@@ -1,0 +1,5 @@
+df = spark.read.format("delta").load("data/silver/patient")
+
+agg_df = df.groupBy("hospital_id").count()
+
+agg_df.write.format("delta").mode("overwrite").save("data/gold/hospital_metrics")
