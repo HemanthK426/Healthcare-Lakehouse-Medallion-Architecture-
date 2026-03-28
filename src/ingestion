@@ -1,1 +1,13 @@
+from pyspark.sql import SparkSession
 
+def ingest_data(input_path, output_path):
+    spark = SparkSession.builder.appName("Ingestion").getOrCreate()
+
+    df = spark.read.csv(input_path, header=True, inferSchema=True)
+
+    df.write.format("delta").mode("overwrite").save(output_path)
+
+    print("Data ingested to Bronze layer")
+
+if __name__ == "__main__":
+    ingest_data("data/raw/patient_data.csv", "data/bronze/patient")
