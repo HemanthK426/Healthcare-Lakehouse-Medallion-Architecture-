@@ -1,0 +1,5 @@
+patient_id,age,gender,hospital_id,admission_date,discharge_date,diagnosis,cost
+1001,45,M,201,2024-01-10,2024-01-15,Diabetes,2500
+1002,60,F,202,2024-02-05,2024-02-12,Cardiac,8000
+1003,30,M,201,2024-03-01,2024-03-03,Flu,500
+1004,50,F,203,2024-03-10,2024-03-18,Cancer,15000
