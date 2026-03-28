@@ -1,1 +1,15 @@
+from pyspark.sql import SparkSession
 
+def aggregate_data(input_path, output_path):
+    spark = SparkSession.builder.appName("Aggregation").getOrCreate()
+
+    df = spark.read.format("delta").load(input_path)
+
+    agg_df = df.groupBy("hospital_id").avg("cost")
+
+    agg_df.write.format("delta").mode("overwrite").save(output_path)
+
+    print("Gold layer created")
+
+if __name__ == "__main__":
+    aggregate_data("data/silver/patient", "data/gold/hospital_metrics")
