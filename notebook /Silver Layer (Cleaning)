@@ -1,0 +1,7 @@
+from pyspark.sql.functions import col
+
+df = spark.read.format("delta").load("data/bronze/patient")
+
+clean_df = df.dropna().dropDuplicates()
+
+clean_df.write.format("delta").mode("overwrite").save("data/silver/patient")
