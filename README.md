@@ -1,16 +1,16 @@
 # 🏥 Healthcare Data Lakehouse Pipeline (Medallion Architecture)
 
-## 📌 Problem Statement
+##  Problem Statement
 
 Healthcare organizations generate large volumes of patient and claims data. This project builds a scalable data pipeline to ingest, clean, and transform raw healthcare data into analytics-ready datasets.
 
-## 🏗️ Architecture
+##  Architecture
 
 * Bronze Layer: Raw ingestion from CSV/JSON into S3
 * Silver Layer: Data cleaning, schema enforcement, deduplication
 * Gold Layer: Aggregated datasets for reporting (e.g., patient readmission rates)
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 * AWS S3
 * Apache Spark (PySpark)
@@ -18,34 +18,42 @@ Healthcare organizations generate large volumes of patient and claims data. This
 * Apache Airflow
 * Python
 
-## 🔄 Data Flow
+##  Data Flow
 
 1. Raw patient data ingested into Bronze layer
 2. Data cleaned and validated into Silver tables
 3. Business aggregations created in Gold layer
 
-## ✅ Key Features
+##  Key Features
 
 * Schema enforcement & evolution
 * Data quality checks
 * Incremental processing
 * Partitioned storage for performance
 
-## 📊 Sample Use Cases
+##  Sample Use Cases
 
 * Patient readmission analysis
 * Claims cost analysis
 * Hospital performance metrics
 
-## 🚀 How to Run
+##  How to Run
 
 1. Upload sample data to `/data/raw`
 2. Run ingestion script
 3. Execute transformation notebooks
 4. Trigger Airflow DAG
 
-## 📈 Outcome
+##  Outcome
 
 * Scalable data pipeline design
 * Reduced data processing time
 * Analytics-ready datasets for BI tools
+
+## Implementation
+
+* Implemented Medallion Architecture (Bronze/Silver/Gold)
+* Handled schema evolution using Delta Lake
+* Optimized storage using partitioning
+* Designed reusable ETL pipelines
+
